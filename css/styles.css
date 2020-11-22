@@ -1,0 +1,334 @@
+/*Barra de navegación*/
+#mainNav {
+	box-shadow: none;
+	background-color: transparent !important;
+}
+
+#mainNav {
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	background-color: #fff !important;
+	transition: background-color 0.2s ease;
+	color: #212529;
+}
+  
+#mainNav .navbar-brand {
+	font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-weight: 700;
+	color: #212529;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+	color: #6c757d;
+	font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-weight: 700;
+	font-size: 0.9rem;
+	padding: 0.75rem 0;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
+	color: #f4623a;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active {
+	color: #f4623a !important;
+}
+
+@media (min-width: 992px) {
+	#mainNav {
+	  box-shadow: none;
+	  background-color: transparent !important;
+	}
+	#mainNav .navbar-brand {
+	  color: rgba(255, 255, 255, 0.7);
+	}
+	#mainNav .navbar-brand:hover {
+	  color: #fff;
+	}
+	#mainNav .navbar-nav .nav-item .nav-link {
+	  color: rgba(255, 255, 255, 0.7);
+	  padding: 0 1rem;
+	}
+	#mainNav .navbar-nav .nav-item .nav-link:hover {
+	  color: #fff;
+	}
+	#mainNav .navbar-nav .nav-item:last-child .nav-link {
+	  padding-right: 0;
+	}
+	#mainNav.navbar-scrolled {
+	  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	  background-color: #fff !important;
+	}
+	#mainNav.navbar-scrolled .navbar-brand {
+	  color: #212529;
+	}
+	#mainNav.navbar-scrolled .navbar-brand:hover {
+	  color: #f4623a;
+	}
+	#mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
+	  color: #212529;
+	}
+	#mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
+	  color: #f4623a;
+	}
+}
+
+
+/*Para la sección principal*/
+.main-section {
+	position: relative;
+	background: url(../assets/Imagenes/Backgrounds/background.jpg);
+	background-size: cover;
+	min-height: 100vh;
+}
+
+.background-overlay {
+	position: absolute;
+	background: rgb(70, 35, 27, .7);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.btn-rounded {
+	border-radius: 35px;
+	width: 25%;
+	height: 25%;
+}
+
+/*Acerca de*/
+.abs-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 70vh;
+}
+
+#section1 {
+	background-color: #f4623a;
+}
+
+/*Para la Galeria*/
+.galery {
+	margin: 75px;
+}
+
+img {
+	width: 100%;
+	border-color: #f4623a;
+	border-radius: 10px;
+}
+
+/*Para el equipo*/
+/*#section3 {
+	background-color: #20aaeb;
+	min-height: 100vh;
+}
+
+h4 {
+	color: #fff;
+}*/
+
+
+/*========================================================================================================================================================*/
+
+h2 {
+	color: #fff;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 40px;
+    text-transform: uppercase;
+}
+
+.background-team {
+	background: url("../assets/Imagenes/Backgrounds/fondo.jpg") no-repeat center top / cover;
+}
+
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.titulo {
+	display: block;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.background-team .card-team { 
+	float:left; 
+	width:100%; 
+	background:#fff; 
+	padding:30px 20px; 
+	text-align:center; 
+	border:2px solid #d5d5d5;
+	margin: 0 0 28px;
+	height: 700px;
+	border-radius: 10px;
+}
+
+.background-team .card-team:hover {
+    box-shadow: 0px 0px 20px #f4623a;
+}
+
+.background-team .card-team figure{
+	width:200px; 
+	height:200px; 
+	border-radius:100%; 
+	display:inline-block;
+	margin: 30px;
+	
+}
+
+.background-team .card-team img{ 
+	width:200px; 
+	height:200px; 
+	border-radius:100%;
+	border: 3px solid #f4623a;
+}
+
+.background-team .card-team h3 { 
+	color:#2a2a2a; 
+	font-size:20px; 
+	font-weight:500; 
+	padding:6px 0;
+	text-transform:uppercase;
+}
+
+.background-team .card-team h4 { 
+	color:#2a2a2a; 
+	font-size:18px; 
+	font-weight:500; 
+	padding:6px 0;
+	text-transform:uppercase;
+}
+
+.background-team .card-team h3 a{
+  	text-decoration:none;
+	color:#2a2a2a;
+}
+
+.background-team .card-team h3 a:hover{
+	color:#337ab7;
+}
+
+.background-team .card-team p{ 
+	color:#2a2a2a; 
+	font-size:13px; 
+	line-height:20px; 
+	font-weight:400;
+}
+
+.background-team .card-team .follow-us{
+	margin:20px 0 0;
+}
+
+.background-team .card-team .follow-us li{ 
+    display:inline-block; 
+	width:20px; 
+	margin:0 5px;
+}
+
+.background-team .card-team .follow-us li .fa{ 
+	font-size:24px; 
+	color:#767676;	
+}
+
+.background-team .card-team .follow-us li .fa:hover{ 
+	color:#025a8e;
+}
+
+
+/*Para el contacto*/
+#section4 {
+	height: 70vh;
+}
+
+#section4 .card:hover i, a{
+	color: #f4623a;
+}
+#section4 a:hover {
+	color: #f4623a;
+}
+
+/*Para la ubicación*/
+
+/*Para el footer*/
+.btn-fb {
+    color: #fff;
+    background-color: #3b5998 !important;
+}
+
+.btn-tw {
+    color: #fff;
+    background-color: #55acee !important;
+}
+
+.btn-gplus {
+    color: #fff;
+    background-color: #dd4b39 !important;
+}
+
+.btn-li {
+    color: #fff;
+    background-color: #0082ca !important;
+}
+
+.footer-copyright {
+    overflow: hidden;
+    color: rgba(255,255,255,0.6);
+    background-color: rgba(0,0,0,0.2);
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.btn-floating {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0;
+    margin: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    width: 47px;
+    height: 47px;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.list-inline-item {
+    display: inline-block;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    color: #fff;
+	text-align: center;
+	font-size: 1.25rem;
+    line-height: 47px;
+}
+
+.fab {
+    font-family: "Font Awesome 5 Brands";
+}
