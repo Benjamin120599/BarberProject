@@ -1,0 +1,88 @@
+:root {
+    --dark: #46231be6;
+    --dark-x: rgb(70, 35, 27, .8);
+    --light: #ffffff;
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 300;
+    color: var(--light);
+}
+
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
+.bg-dark-x {
+    background-color: var(--dark-x);
+}
+
+.form-control,
+.btn {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+
+.img-1 {
+    margin-top: 50px;
+    background: url(../assets/Imagenes/Galeria/img06.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.img-2 {
+    margin-top: 50px;
+    background: url(../assets/Imagenes/Galeria/img07.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.img-3 {
+    margin-top: 50px;
+    background: url(../assets/Imagenes/Galeria/img08.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*Barra de navegación*/
+#mainNav {
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	background-color: var(--light) !important;
+	transition: background-color 0.2s ease;
+	color: var(--dark);
+}
+  
+#mainNav .navbar-brand {
+	font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-weight: 700;
+	color:var(--dark);
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+	color: var(--dark);
+	font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-weight: 700;
+	font-size: 1rem;
+	padding: 0 1rem;
+}
+/*
+@media (min-width: 992px) {
+	#mainNav .navbar-brand {
+	  color: var(--dark);
+	}
+	#mainNav .navbar-brand:hover {
+	  color: var(--dark-x);
+	}
+	#mainNav .navbar-nav .nav-item .nav-link {
+	  color: var(--dark);
+	  padding: 0 1rem;
+	}
+	#mainNav .navbar-nav .nav-item .nav-link:hover {
+	  color: var(--dark-x);
+	}
+	#mainNav .navbar-nav .nav-item:last-child .nav-link {
+	  padding-right: 0;
+	}
+}*/
