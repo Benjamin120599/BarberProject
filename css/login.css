@@ -1,6 +1,6 @@
 :root {
     --dark: #46231be6;
-    --dark-x: rgb(70, 35, 27, .8);
+    --dark-x: rgba(70, 35, 27, 0.781);
     --light: #ffffff;
 }
 
@@ -18,10 +18,19 @@ body {
     background-color: var(--dark-x);
 }
 
-.form-control,
-.btn {
+.form-control, .btn {
     min-height: 3.125rem;
     line-height: initial;
+}
+
+.inp {
+	background-color: var(--dark-x);
+	color: var(--light);
+}
+
+.inp:focus {
+	background-color: var(--dark-x);
+	color: var(--light);
 }
 
 .img-1 {

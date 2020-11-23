@@ -84,18 +84,15 @@
                     <div class="px-lg-5 py-lg-4 p-4 w-100 mt-5">
                         <h1 class="font-weight-bold mb-4">Bienvenido a la barbería</h1>
     
-                        <form class="mb-5" method="POST">
+                        <form class="mb-5" method="POST" action="../php/procesar_login.php">
                             <div class="mb-4">
                                 <label class="form-label font-weight-bold">Usuario</label>
-                                <input type="text" class="form-control bg-dark-x border-0" id="user"
-                                    placeholder="Ingresa tu usuario">
+                                <input type="text" class="form-control inp border-0" id="user" placeholder="Ingresa tu usuario" name="caja_usuario">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label font-weight-bold">Contraseña</label>
-                                <input type="password" class="form-control bg-dark-x border-0 mb-2" id="password"
-                                    placeholder="Ingresa tu contraseña">
-                                <a class="form-text text-muted text-decoration-none" href="#">¿Has olvidado tu
-                                    contraseña?</a>
+                                <input type="password" class="form-control inp border-0 mb-2" id="password" placeholder="Ingresa tu contraseña" name="caja_contraseña">
+                                <a class="form-text text-muted text-decoration-none" href="#">¿Has olvidado tu contraseña?</a>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
                         </form>
