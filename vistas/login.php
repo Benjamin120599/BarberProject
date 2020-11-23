@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['nombre'])) {
+        header('Location: inicio.php');
+    } 
+?>
 <!doctype html>
 <html lang="es">
 
@@ -31,7 +37,7 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="login.html"> Login</a>
+							<a class="nav-link" href="login.php">Login</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="signup.html">Sign Up</a>
