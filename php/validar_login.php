@@ -21,7 +21,7 @@
         header('location: ../vistas/inicio.php');
     } else {
         //echo '<br>No existe el usuario';
-        header('../vistas/login.php');
+        header('location: ../vistas/login.php');
     }
     
 
