@@ -104,6 +104,12 @@
 	min-height: 70vh;
 }
 
+.img-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 #section1 {
 	background-color: #f4623a;
 }
