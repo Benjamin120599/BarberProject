@@ -19,7 +19,15 @@
         echo '<br>'.$datos['Primer_Ap'];
         echo '<br>'.$datos['Segundo_Ap'];
         echo '<br>'.$datos['Telefono'];
-        $_SESSION['nombre'] = $datos['User'];
+        echo '<br>'.$datos['Tipo_Usuario'];
+
+        $_SESSION['user'] = $datos['User'];
+        $_SESSION['tipoUser'] = $datos['Tipo_Usuario'];
+        $_SESSION['nombre'] = $datos['Nombre'];
+        $_SESSION['primerAp'] = $datos['Primer_Ap'];
+        $_SESSION['segundoAp'] = $datos['Segundo_Ap'];
+        $_SESSION['telefono'] = $datos['Telefono'];
+
         header('location: ../vistas/Inicio');
     } else {
         //echo '<br>No existe el usuario';
