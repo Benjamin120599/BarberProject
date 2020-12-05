@@ -18,7 +18,7 @@
         echo '<br>'.$datos['Segundo_Ap_Client'];
         echo '<br>'.$datos['Telefono_Client'];
         $_SESSION['nombre'] = $datos['User_Client'];
-        header('location: ../vistas/inicio.php');
+        header('location: ../vistas/Inicio');
     } else {
         //echo '<br>No existe el usuario';
         header('location: ../vistas/login.php');
