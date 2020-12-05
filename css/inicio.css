@@ -30,3 +30,14 @@ a:hover {
 #sidebar-container .menu {
     width: 18rem;
 }
+
+.divider {
+    background-color: white;
+}
+
+.abs-center {
+    margin-top: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
