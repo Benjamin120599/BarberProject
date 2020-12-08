@@ -1,9 +1,9 @@
 <?php
-    session_start();
+session_start();
 
-    if(!isset($_SESSION['nombre'])) {
-        header('Location: login.php');    
-    }
+if (!isset($_SESSION['nombre'])) {
+    header('Location: login.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,8 +12,7 @@
     <meta charset='utf-8'>
     <title>Inicio</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;700&display=swap" rel="stylesheet">
@@ -24,25 +23,50 @@
 
     <div class="d-flex">
         <div id="sidebar-container" class="bg-primary">
-            <div class="logo">
-                <h4 class="text-light font-wight-bold">Barbería Quien Sabe Qué </h4>
+            <div class="logo abs-center">
+                <h4 class="text-light font-wight-bold">Barbería</h4>
             </div>
             <div class="menu">
-                <a href="#" class="d-block p-3 text-light lead"><i class="icon ion-md-add mr-3"></i>Agendar Cita</a>
-                <a href="#" class="d-block p-3 text-light lead"><i class="icon ion-md-list mr-3"></i>Modificar Cita</a>
-                <a href="#" class="d-block p-3 text-light lead"><i class="icon ion-md-trash mr-3"></i>Cancelar Cita</a>
-                <a href="#" class="d-block p-3 text-light lead"><i class="icon ion-md-search mr-3"></i>Mis Citas</a>
-                <a href="#" class="d-block p-3 text-light lead"><i class="icon ion-md-help mr-3"></i>Ayuda</a>
-                <a href="#" class="d-block p-3 text-light lead"><i class="icon ion-md-exit mr-3"></i>Salir</a>
+
+                <hr class="m-3 divider">
+
+                <a href="#" class="d-block p-3 text-light lead">
+                    <i class="icon ion-md-add mr-3"></i>
+                    <span>Agendar Cita</span>
+                </a>
+
+                <a href="#" class="d-block p-3 text-light lead">
+                    <i class="icon ion-md-list mr-3"></i>
+                    <span>Modificar Cita</span>
+                </a>
+
+                <a href="#" class="d-block p-3 text-light lead">
+                    <i class="icon ion-md-trash mr-3"></i>
+                    <span>Cancelar Cita</span>
+                </a>
+
+                <a href="#" class="d-block p-3 text-light lead">
+                    <i class="icon ion-md-search mr-3"></i>
+                    <span>Citas</span>
+                </a>
+
+                <a href="#" class="d-block p-3 text-light lead">
+                    <i class="icon ion-md-help mr-3"></i>
+                    <span>Ayuda</span>
+                </a>
+
+                <a href="#" class="d-block p-3 text-light lead">
+                    <i class="icon ion-md-exit mr-3"></i>
+                    <span>Salir</span>
+                </a>
+
             </div>
         </div>
 
         <div class="w-100 ml-2 mr-2">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -67,14 +91,12 @@
                 </div>
             </nav>
         </div>
+
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.min.js"
-        integrity="sha384-t6I8D5dJmMXjCsRLhSzCltuhNZg6P10kE0m0nAncLUjH6GeYLhRU1zfLoW3QNQDF" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-t6I8D5dJmMXjCsRLhSzCltuhNZg6P10kE0m0nAncLUjH6GeYLhRU1zfLoW3QNQDF" crossorigin="anonymous">
     </script>
 </body>
 
