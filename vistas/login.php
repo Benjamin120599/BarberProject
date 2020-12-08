@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/login.css" />
+    <script src="../js/validacion.js" type="text/javascript"></script>
     <title>Iniciar Sesión!</title>
 </head>
 
@@ -89,7 +90,7 @@
                     <div class="px-lg-5 py-lg-4 p-4 w-100">
                         <h1 class="font-weight-bold mb-4">Bienvenido a la barbería</h1>
     
-                        <form class="mb-5" method="POST" action="../php/validar_login.php">
+                        <form id="formulario" class="mb-5" onsubmit="validarFormulario()" method="POST" action="../php/validar_login.php">
                             <div class="mb-4">
                                 <label class="form-label font-weight-bold">Usuario</label>
                                 <input type="text" class="form-control inp" id="user" placeholder="Ingresa tu usuario" name="caja_usuario" required>
@@ -99,7 +100,7 @@
                                 <input type="password" class="form-control inp mb-2" id="password" placeholder="Ingresa tu contraseña" name="caja_contraseña" required>
                                 <a class="form-text text-muted text-decoration-none" href="#">¿Has olvidado tu contraseña?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                            <button type="submit" onclick="alert(validarFormulario()? 'Puedes acceder':'Error al autenticarse')" class="btn btn-primary w-100">Iniciar Sesión</button>
                         </form>
     
                         <div class="text-center">
@@ -112,9 +113,9 @@
         </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    <scrip src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous">
-    </script>
+    </scrip>
 
 </body>
 
