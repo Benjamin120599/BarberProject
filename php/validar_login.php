@@ -27,7 +27,8 @@
         $_SESSION['primerAp'] = $datos['Primer_Ap'];
         $_SESSION['segundoAp'] = $datos['Segundo_Ap'];
         $_SESSION['telefono'] = $datos['Telefono'];
-
+        $_SESSION['tiempo'] = time() + 5;
+ 
         header('location: ../vistas/Inicio');
     } else {
         //echo '<br>No existe el usuario';
