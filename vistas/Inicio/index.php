@@ -1,9 +1,20 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['nombre'])) {
-    header('Location: ../login.php');
-}
+    if (!isset($_SESSION['user'])) {
+        header('Location: ../login.php');
+    }
+
+    if(isset($_SESSION['tiempo'])) {
+        if($_SESSION['tiempo'] < time()) {
+            unset($_SESSION['tiempo']);
+            echo "<script>alert('Tiempo de sesión finalizado'
+                parent.parent.window.location='../login.php'</script>";
+        } else {
+            $_SESSION['tiempo'] = time() + 10;
+        }
+    }
+
 ?>
 
 
@@ -27,16 +38,6 @@ if (!isset($_SESSION['nombre'])) {
 
         <a class="navbar-brand" href="index.php">Barber System</a>
 
-        <!-- Navbar Search
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </form>-->
-
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <li class="nav-item dropdown">
@@ -50,7 +51,6 @@ if (!isset($_SESSION['nombre'])) {
             </li>
         </ul>
     </nav>
-
 
     <!--Sidebar-->
     <div id="layoutSidenav">
@@ -68,22 +68,22 @@ if (!isset($_SESSION['nombre'])) {
 
                         <div class="sb-sidenav-menu-heading">Operaciones</div>
 
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="agregar_cita.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-plus"></i></div>
                             Agendar Cita
                         </a>
 
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="modificar_cita.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
                             Modificar Cita
                         </a>
 
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="cancelar_cita.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-times"></i></div>
                             Cancelar Cita
                         </a>
 
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="lista_citas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
                             Mis Citas
                         </a>
@@ -99,8 +99,8 @@ if (!isset($_SESSION['nombre'])) {
 
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Clientes</a>
-                                <a class="nav-link" href="#"></a>
+                                <a class="nav-link" href="lista_clientes.php">Clientes</a>
+                                <a class="nav-link" href="agregar_cliente.php">Agregar Cliente</a>
                             </nav>
                         </div>
 
@@ -112,9 +112,9 @@ if (!isset($_SESSION['nombre'])) {
 
                         <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Personal</a>
-                                <a class="nav-link" href="#">Servicios</a>
-                                <a class="nav-link" href="#">Tipos Usuarios</a>
+                                <a class="nav-link" href="agregar_personal.php">Personal</a>
+                                <a class="nav-link" href="agregar_servicio.php">Servicios</a>
+                                <a class="nav-link" href="agregar_tipo_usuario.php">Tipos Usuarios</a>
                             </nav>
                         </div>
                         <?php } ?>

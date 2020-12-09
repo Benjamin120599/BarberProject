@@ -9,7 +9,7 @@ if (isset($_SESSION['tiempo'])) {
     if ($_SESSION['tiempo'] < time()) {
         unset($_SESSION['tiempo']);
         echo "<script>alert('Tiempo de sesión finalizado'
-                    parent.parent.window.location='../login.php'</script>";
+            parent.parent.window.location='../login.php'</script>";
     } else {
         $_SESSION['tiempo'] = time() + 10;
     }
@@ -42,128 +42,12 @@ if (isset($_SESSION['tiempo'])) {
     <script src='fullcalendar/timegrid/main.js'></script>
     <script src='fullcalendar/interaction/main.js'></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                plugins: ['dayGrid', 'interaction', 'timeGrid', 'list'],
-                //defaultView: 'timeGridDay'
-                defaultView: 'timeGridWeek',
-                height: 650,
-                themeSystem: 'bootstrap',
-
-                header: {
-                    left: 'prev,next today Miboton',
-                    center: 'title',
-                    //right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    right: 'timeGridWeek,timeGridDay'
-                },
-                /*customButtons: {
-                    Miboton: {
-                        text: "Botón",
-                        click: function() {
-                            alert("Hola mundo");
-                        }
-                    }
-                },*/
-
-                businessHours: [ // specify an array instead
-                    {
-                        daysOfWeek: [1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
-                        startTime: '09:00', // 8am
-                        endTime: '21:00' // 6pm
-                    },
-                    {
-                        daysOfWeek: [6,0], // Thursday, Friday
-                        startTime: '10:00', // 10am
-                        endTime: '16:00' // 4pm
-                    }
-                ],
-
-                dateClick: function(info) {
-                    $('#exampleModal').modal('show');
-                    console.log(info);
-
-                    var fecha = info.dateStr;
-                    var hora = info.dateStr.substring(11, 19);
-
-                    var day = info.date.toString();
-                    console.log(day);
-                    var dia = "Prueba";
-                    if(day.substring(0,3)== "Mon") {
-                        dia = "Lunes";
-                    } else if(day.substring(0,3) == "Tue") {
-                        dia = "Martes";
-                    } else if(day.substring(0,3) == "Wed") {
-                        dia = "Miercoles";
-                    } else if(day.substring(0,3) == "Thu") {
-                        dia = "Jueves";
-                    } else if(day.substring(0,3) == "Fri") {
-                        dia = "Viernes";
-                    } else if(day.substring(0,3) == "Sat") {
-                        dia = "Sábado";
-                    } else if(day.substring(0,3) == "Sun") {
-                        dia = "Domingo";
-                    }
-
-                    
-
-                    $('#txt_fecha').val(fecha.substring(0, 10));
-                    $('#txt_hora').val(hora);
-                    $('#txt_dia').val(dia);
-
-                    /*calendar.addEvent({
-                        title: "Evento",
-                        date: info.dateStr
-                    });*/
-                },
-                eventClick: function(info) {
-                    console.log(info);
-                    console.log(info.event.title);
-                    console.log(info.event.start);
-                    console.log(info.event.end);
-                    console.log(info.event.backgroundColor);
-                    console.log(info.event.textColor);
-                    console.log(info.event.extendedProps.descripcion);
-                },
-                /*businessHours: {
-                    start: '23:00', // hora final
-                    end: '09:00', // hora inicial
-                    dow: [0, 1, 2, 3, 4, 5] // dias de semana, 0=Domingo
-                },*/
-                events: [{
-                        title: "Navidad",
-                        start: "2020-12-24 19:00:00",
-                        end: "2020-12-25 03:00:00",
-                        descripcion: "Descripcion evento 1"
-                    },
-                    {
-                        title: "Año nuevo",
-                        start: "2020-12-31 19:00:00",
-                        end: "2021-01-01 03:00:00",
-                        color: "#46231be6",
-                        textColor: "#ffffff",
-                        descripcion: "Descripcion evento 1"
-                    }
-                ]
-
-            });
-
-
-            calendar.setOption('locale', 'Es');
-            calendar.render();
-        });
-    </script>
-
 </head>
 
 
 <body class="sb-nav-fixed">
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-main">
-
-
 
         <a class="navbar-brand" href="index.php">Barber System</a>
 
@@ -272,7 +156,7 @@ if (isset($_SESSION['tiempo'])) {
                     </div>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button hidden type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Launch demo modal
                     </button>
 
@@ -303,35 +187,60 @@ if (isset($_SESSION['tiempo'])) {
 
                                     <div class="col-lg-12">
                                         <label>Selecciona un servicio: </label>
-                                        <select class="form-select mb-3" required>
+                                        <select id="txt_servicio" class="form-select mb-3" required>
                                             <option selected>Selecciona una opción</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <?php
+                                                session_start();
+                                                include_once '../../php/abrir_conexion.php';
+
+                                                $sentencia = $conexion->prepare("SELECT * FROM Servicios;");
+
+                                                $sentencia->execute([1]);
+                                                $datos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+
+                                                $i = 1;
+                                                foreach ($datos as $key) {
+                                                    echo '<option value="' . $i . '">' . $key['Tipo_Corte'] . '</option>';
+                                                    $i = $i + 1;
+                                                }
+                                            ?>
                                         </select>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <label>Selecciona un estilista: </label>
-                                        <select class="form-select mb-3" required>
+                                        <select id="txt_barber" class="form-select mb-3" required>
                                             <option selected>Selecciona una opción</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <?php
+                                                session_start();
+                                                include_once '../../php/abrir_conexion.php';
+
+                                                $sentencia = $conexion->prepare("SELECT * FROM Barberos WHERE Disponibilidad = ?;");
+
+                                                $sentencia->execute([1]);
+                                                $datos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+
+                                                $i = 1;
+                                                foreach ($datos as $key) {
+                                                    echo '<option value="' . $i . '">' . $key['Nombre_Barber'] . '</option>';
+                                                    $i = $i + 1;
+                                                }
+                                            ?>
                                         </select>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <label>Cliente: </label>
-                                        <input class="form-control mb-3" type="text" value="<?php echo $_SESSION['nombre']; ?>" disabled>
+                                        <input id="txt_cliente" class="form-control mb-3" type="text" value="<?php echo $_SESSION['nombre']; ?>" disabled>
                                     </div>
-
 
 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-success">Agendar</button>
+                                    <button id="btn_agendar" type="button" class="btn btn-success">Agendar</button>
                                 </div>
                             </div>
                         </div>
