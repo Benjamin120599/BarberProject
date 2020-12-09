@@ -1,9 +1,10 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['nombre'])) {
-    header('Location: login.php');
-}
+    if (!isset($_SESSION['nombre'])) {
+        header('Location: login.php');
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
