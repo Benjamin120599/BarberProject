@@ -3,6 +3,13 @@
 
     include('conexionBD.php');
 
+    session_start();
+
+    if (!isset($_SESSION['user'])) {
+        header('Location: ../login.php');
+    }
+
+
     $pdo = new ConexionBD;
 
     $accion = (isset($_GET['accion']))?$_GET['accion']:'leer';
@@ -17,11 +24,32 @@
         break;
         
         case 'eliminar':
-            echo "Instruccion eliminar";
+
+            $respuesta = false;
+
+            if(isset($_POST['id'])) {
+                $sql = "DELETE FROM Citas WHERE Id_Cita = ?;";
+                $sentencia = $pdo->prepare($sql);
+                $respuesta = $sentencia->execute([$_POST['id']]);
+            }
+
+            echo json_encode($respuesta);
+
         break;
 
         case 'modificar':
             echo "Instruccion modificar";
+        break;
+
+        case 'special':
+            //$sql = "SELECT concat(Servicio, ' - ', Cliente) AS title, concat(Fecha, ' ', Hora_Inicio) AS date FROM Citas WHERE Cliente=?;";
+            $sql = "SELECT concat(Servicio, ' - ', Cliente) AS title, concat(Fecha, ' ', Hora_Inicio) AS date, Id_cita AS id, Dia AS dia, Hora_Inicio AS hora, Fecha AS fecha, Servicio AS servicio, Barber AS barber, Cliente AS cliente FROM Citas WHERE Cliente=?;";
+        
+            $sentencia = $pdo->prepare($sql);
+            $sentencia->execute([$_SESSION['user']]);
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        
+            echo json_encode($resultado);
         break;
 
         default:
