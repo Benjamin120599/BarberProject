@@ -5,16 +5,6 @@
         header('Location: ../login.php');
     }
 
-    if(isset($_SESSION['tiempo'])) {
-        if($_SESSION['tiempo'] < time()) {
-            unset($_SESSION['tiempo']);
-            echo "<script>alert('Tiempo de sesión finalizado'
-                parent.parent.window.location='../login.php'</script>";
-        } else {
-            $_SESSION['tiempo'] = time() + 10;
-        }
-    }
-
 ?>
 
 
@@ -83,11 +73,6 @@
                             Cancelar Cita
                         </a>
 
-                        <a class="nav-link" href="lista_citas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
-                            Mis Citas
-                        </a>
-
                         <?php if($_SESSION['tipoUser'] == 1) { ?> 
                         <div class="sb-sidenav-menu-heading">Administración</div>
 
@@ -114,7 +99,6 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="agregar_personal.php">Personal</a>
                                 <a class="nav-link" href="agregar_servicio.php">Servicios</a>
-                                <a class="nav-link" href="agregar_tipo_usuario.php">Tipos Usuarios</a>
                             </nav>
                         </div>
                         <?php } ?>
