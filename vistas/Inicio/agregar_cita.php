@@ -5,16 +5,6 @@ if (!isset($_SESSION['user'])) {
     header('Location: ../login.php');
 }
 
-if (isset($_SESSION['tiempo'])) {
-    if ($_SESSION['tiempo'] < time()) {
-        unset($_SESSION['tiempo']);
-        echo "<script>alert('Tiempo de sesión finalizado'
-            parent.parent.window.location='../login.php'</script>";
-    } else {
-        $_SESSION['tiempo'] = time() + 10;
-    }
-}
-
 ?>
 
 
@@ -97,11 +87,6 @@ if (isset($_SESSION['tiempo'])) {
                             Cancelar Cita
                         </a>
 
-                        <a class="nav-link" href="lista_citas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
-                            Mis Citas
-                        </a>
-
                         <?php if ($_SESSION['tipoUser'] == 1) { ?>
                             <div class="sb-sidenav-menu-heading">Administración</div>
 
@@ -128,7 +113,6 @@ if (isset($_SESSION['tiempo'])) {
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="agregar_personal.php">Personal</a>
                                     <a class="nav-link" href="agregar_servicio.php">Servicios</a>
-                                    <a class="nav-link" href="agregar_tipo_usuario.php">Tipos Usuarios</a>
                                 </nav>
                             </div>
                         <?php } ?>
@@ -201,7 +185,7 @@ if (isset($_SESSION['tiempo'])) {
 
                                                 $i = 1;
                                                 foreach ($datos as $key) {
-                                                    echo '<option value="' . $i . '">' . $key['Tipo_Corte'] . '</option>';
+                                                    echo '<option value="' . $i . '">' . $key['Id_Servicio'] . '</option>';
                                                     $i = $i + 1;
                                                 }
                                             ?>
@@ -224,7 +208,7 @@ if (isset($_SESSION['tiempo'])) {
 
                                                 $i = 1;
                                                 foreach ($datos as $key) {
-                                                    echo '<option value="' . $i . '">' . $key['Nombre_Barber'] . '</option>';
+                                                    echo '<option value="' . $i . '">' . $key['Id_Barber'] . '</option>';
                                                     $i = $i + 1;
                                                 }
                                             ?>
@@ -233,7 +217,7 @@ if (isset($_SESSION['tiempo'])) {
 
                                     <div class="col-lg-12">
                                         <label>Cliente: </label>
-                                        <input id="txt_cliente" class="form-control mb-3" type="text" value="<?php echo $_SESSION['nombre']; ?>" disabled>
+                                        <input id="txt_cliente" class="form-control mb-3" type="text" value="<?php echo $_SESSION['user']; ?>" disabled>
                                     </div>
 
 
@@ -265,7 +249,9 @@ if (isset($_SESSION['tiempo'])) {
             </footer>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
