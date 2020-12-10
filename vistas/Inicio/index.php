@@ -68,7 +68,7 @@
                             Modificar Cita
                         </a>
 
-                        <a class="nav-link" href="cancelar_cita.php">
+                        <a class="nav-link" href="eliminar_cita.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-times"></i></div>
                             Cancelar Cita
                         </a>
