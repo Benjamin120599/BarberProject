@@ -50,8 +50,30 @@
             
         }
 
-        
+        public function eliminarCliente($user) {
+            $sql = "DELETE FROM Usuarios WHERE User=?";
+            $sentencia = $this->conexion->prepare($sql);
+            $respuesta = $sentencia->execute([$user]);
 
+            json_encode($respuesta);
+        }
+
+        public function modificarCliente($user, $pass, $nombre, $primerAP, $segundoAp, $tel, $tipo) {
+            
+            $sql = "UPDATE Usuarios SET Pass=?, Nombre=?, Primer_Ap=?, Segundo_Ap=?, Telefono=? Tipo_Usuario=? WHERE User=?";
+            $sentencia = $this->conexion->prepare($sql);
+            $respuesta = $sentencia->execute([$pass, $nombre, $primerAP, $segundoAp, $tel, $tipo, $user]);
+            json_encode($respuesta);
+        }
+
+        public function buscarClientes() {
+            $sql = "SELECT * FROM Usuarios";
+            $sentencia = $this->conexion->prepare($sql);
+            $sentencia->execute();
+            $respuesta = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            json_encode($respuesta);
+        }
 
 
     }
