@@ -38,7 +38,12 @@
         break;
 
         case 'modificar':
-            echo "Instruccion modificar";
+            
+            $sql = "UPDATE Citas SET Dia = ?, Hora_Inicio = ?, Fecha = ?, Servicio = ?, Barber = ?, Cliente = ? WHERE Id_Cita = ?";
+            $sentencia = $pdo->prepare($sql);
+            $respuesta = $sentencia->execute([$_POST['dia'], $_POST['hora'], $_POST['fecha'], $_POST['servicio'], $_POST['barber'], $_POST['cliente'], $_POST['id']]);
+
+            echo json_encode($respuesta);
         break;
 
         case 'special':
