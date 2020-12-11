@@ -2,7 +2,8 @@
     session_start();
 
     include('clientesDAO.php');
-
+    //=========================================================================
+    
     $user = $_POST['user'];
     $pass = $_POST['pass'];
     $nombre = $_POST['name'];
@@ -11,7 +12,7 @@
     $tel = $_POST['telefono'];
     $tipo = 2;
 
-   
+
     $datosValidos = false;
     if(strlen($user) > 5) {
         $datosValidos = true;
@@ -76,4 +77,6 @@
         
         header('location:../../vistas/signup.php');
     }
+    
+    
 ?>

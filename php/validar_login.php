@@ -13,6 +13,7 @@
     $datos = $sentencia->fetch(PDO::FETCH_ASSOC);
     
     if($datos) {
+
         echo '<br>'.$datos['User'];
         echo '<br>'.$datos['Pass'];
         echo '<br>'.$datos['Nombre'];
@@ -27,7 +28,7 @@
         $_SESSION['primerAp'] = $datos['Primer_Ap'];
         $_SESSION['segundoAp'] = $datos['Segundo_Ap'];
         $_SESSION['telefono'] = $datos['Telefono'];
-        $_SESSION['tiempo'] = time() + 5;
+        $_SESSION["ultimoAcceso"]= date("Y-n-j H:i:s"); 
  
         header('location: ../vistas/Inicio');
     } else {
