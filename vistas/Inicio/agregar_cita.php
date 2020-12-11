@@ -40,7 +40,7 @@ if (!isset($_SESSION['user'])) {
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-main">
 
         <a class="navbar-brand" href="index.php">Barber System</a>
-
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <li class="nav-item dropdown">

@@ -1,9 +1,9 @@
 <?php
-    session_start();
+session_start();
 
-    if (!isset($_SESSION['user'])) {
-        header('Location: ../login.php');
-    }
+if (!isset($_SESSION['user'])) {
+    header('Location: ../login.php');
+}
 
 ?>
 
@@ -27,7 +27,7 @@
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-main">
 
         <a class="navbar-brand" href="index.php">Barber System</a>
-
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <li class="nav-item dropdown">
@@ -73,34 +73,34 @@
                             Cancelar Cita
                         </a>
 
-                        <?php if($_SESSION['tipoUser'] == 1) { ?> 
-                        <div class="sb-sidenav-menu-heading">Administración</div>
+                        <?php if ($_SESSION['tipoUser'] == 1) { ?>
+                            <div class="sb-sidenav-menu-heading">Administración</div>
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Gestionar Clientes
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Gestionar Clientes
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
 
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="lista_clientes.php">Clientes</a>
-                                <a class="nav-link" href="agregar_cliente.php">Agregar Cliente</a>
-                            </nav>
-                        </div>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="lista_clientes.php">Clientes</a>
+                                    <a class="nav-link" href="agregar_cliente.php">Agregar Cliente</a>
+                                </nav>
+                            </div>
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Gestionar Barbería
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Gestionar Barbería
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
 
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="agregar_personal.php">Personal</a>
-                                <a class="nav-link" href="agregar_servicio.php">Servicios</a>
-                            </nav>
-                        </div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="agregar_personal.php">Personal</a>
+                                    <a class="nav-link" href="agregar_servicio.php">Servicios</a>
+                                </nav>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -110,7 +110,6 @@
                 </div>
             </nav>
         </div>
-
 
         <!--Contenido principal-->
         <div id="layoutSidenav_content">
@@ -182,7 +181,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -204,6 +203,9 @@
             </footer>
         </div>
     </div>
+
+   
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
