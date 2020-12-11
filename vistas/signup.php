@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['nombre'])) {
+        header('Location: Inicio');
+    }
+?>
 <!doctype html>
 <html lang="es">
 
@@ -35,7 +41,7 @@
                             <a class="nav-link" href="login.php"> Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signup.html">Sign Up</a>
+                            <a class="nav-link" href="signup.php">Sign Up</a>
                         </li>
                     </ul>
                 </div>
@@ -81,37 +87,44 @@
                        <h2>Crea tu cuenta</h2>
                     </div>
                     <div class="px-lg-5 py-lg-4 p-4 w-100 mt-2">
-                        <form class="row g-3" method="POST">
-                           <div class="col-md-12 mb-3">
+                        <form class="row g-3" method="POST" action="../php/Clientes/registro.php">
+                           
+                            <!--<div class="col-md-12 mb-3">
                                 <label class="form-label">Correo Electrónico*</label>
                                 <input type="email" class="form-control inp" name="email" placeholder="Correo Electrónico" required>
-                            </div>
+                            </div>-->
     
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Usuario*</label>
-                                <input type="text" class="form-control inp" name="user" placeholder="Usuario" required>
+                                <span style="color: white; font-size: xx-small;"> <?php echo isset($_SESSION['errorUser'])?$_SESSION['errorUser'] :"";?></span>
+                                <input type="text" class="form-control inp" name="user" placeholder="Usuario" required value="<?php echo isset($_SESSION['datoUser'])?$_SESSION['datoUser'] :"";?>">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputPassword4" class="form-label">Contraseña*</label>
-                                <input type="password" class="form-control inp" name="pass" placeholder="Contraseña" required>
+                                <span style="color: white; font-size: xx-small;"> <?php echo isset($_SESSION['errorPass'])?$_SESSION['errorPass'] :"";?></span>
+                                <input type="password" class="form-control inp" name="pass" placeholder="Contraseña" required value="<?php echo isset($_SESSION['datoPass'])?$_SESSION['datoPass'] :"";?>">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Nombre*</label>
-                                <input type="text" class="form-control inp" name="name" placeholder="Nombre" required>
+                                <span style="color: white; font-size: xx-small;"> <?php echo isset($_SESSION['errorName'])?$_SESSION['errorName'] :"";?></span>
+                                <input type="text" class="form-control inp" name="name" placeholder="Nombre" required value="<?php echo isset($_SESSION['datoName'])?$_SESSION['datoName'] :"";?>">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Primer Apellido*</label>
-                                <input type="text" class="form-control inp" name="primerAp" placeholder="Primer Apellido" required>
+                                <span style="color: white; font-size: xx-small;"> <?php echo isset($_SESSION['errorPap'])?$_SESSION['errorPap'] :"";?></span>
+                                <input type="text" class="form-control inp" name="primerAp" placeholder="Primer Apellido" required value="<?php echo isset($_SESSION['datoPap'])?$_SESSION['datoPap'] :"";?>">
                             </div>
     
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Segundo Apellido</label>
-                                <input type="text" class="form-control inp" name="segundoAp" placeholder="Segundo Apellido">
+                                <span style="color: white; font-size: xx-small;"> <?php echo isset($_SESSION['errorSap'])?$_SESSION['errorSap'] :"";?></span>
+                                <input type="text" class="form-control inp" name="segundoAp" placeholder="Segundo Apellido" value="<?php echo isset($_SESSION['datoSap'])?$_SESSION['datoSap'] :"";?>">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Telefono*</label>
-                                <input type="tel" class="form-control inp" name="telefono" placeholder="Telefono" required>
+                                <span style="color: white; font-size: xx-small;"> <?php echo isset($_SESSION['errorTel'])?$_SESSION['errorTel'] :"";?></span>
+                                <input type="tel" class="form-control inp" name="telefono" placeholder="Telefono" required value="<?php echo isset($_SESSION['datoTel'])?$_SESSION['datoTel'] :"";?>">
                             </div>
                             
                             <div class="col-md-12 mb-3">
@@ -174,3 +187,23 @@
 </body>
 
 </html>
+
+<?php
+    unset($_SESSION['errorUser']);
+    unset($_SESSION['datoUser']);
+
+    unset($_SESSION['errorPass']);
+    unset($_SESSION['datoPass']);
+
+    unset($_SESSION['errorName']);
+    unset($_SESSION['datoName']);
+
+    unset($_SESSION['errorPap']);
+    unset($_SESSION['datoPap']);
+
+    unset($_SESSION['errorSap']);
+    unset($_SESSION['datoSap']);
+
+    unset($_SESSION['errorTel']);
+    unset($_SESSION['datoTel']);
+?>
