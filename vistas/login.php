@@ -41,7 +41,7 @@
 							<a class="nav-link" href="login.php">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="signup.html">Sign Up</a>
+							<a class="nav-link" href="signup.php">Sign Up</a>
 						</li>
 					</ul>
 				</div>
@@ -104,7 +104,7 @@
                         </form>
     
                         <div class="text-center">
-                            <p class="d-inline-block mb-0">¿Aún no tienes una cuenta? <a href="signup.html">Crea una ahora.</a></p>
+                            <p class="d-inline-block mb-0">¿Aún no tienes una cuenta? <a href="signup.php">Crea una ahora.</a></p>
                         </div>
     
                     </div>
