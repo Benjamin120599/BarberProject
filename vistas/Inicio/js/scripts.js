@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: ['dayGrid', 'interaction', 'timeGrid', 'list'],
-        //defaultView: 'timeGridDay'
-        defaultView: 'timeGridWeek',
+        defaultView: 'timeGridDay',
+        //defaultView: 'timeGridWeek',
         height: 'auto',
         minTime: '09:00:00',
         maxTime: '21:00:00',
@@ -38,9 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
         hiddenDays: [0],
         allDaySlot: false,
         header: {
-            left: 'prev,next today',
+            //left: 'prev,next today',
+            left: 'next today',
             center: 'title',
-            right: 'timeGridWeek,timeGridDay'
+            //right: 'timeGridWeek,timeGridDay'
+            right: 'timeGridDay'
         },
 
         events: 'http://localhost/PaginasWebs/ProyectoFinal/php/eventos.php',

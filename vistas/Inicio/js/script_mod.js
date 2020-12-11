@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             $('#txt_cliente').val(info.event.extendedProps.cliente);
 
         }, 
-        editable: false,
+        editable: true,
         eventDrop: function(info) {
             /*console.log(info.event.title);
             console.log(info.event.start);
