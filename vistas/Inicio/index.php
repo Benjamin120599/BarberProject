@@ -5,32 +5,30 @@ session_start();
 
 if (!isset($_SESSION['user'])) {
     header('Location: ../login.php');
-} 
+}
 
 //Comprobamos si esta definida la sesión 'tiempo'.
-if(isset($_SESSION['tiempo']) ) {
+if (isset($_SESSION['tiempo'])) {
 
     //Tiempo en segundos para dar vida a la sesión.
-    $inactivo = 900;//15 min
+    $inactivo = 900; //15 min
 
     //Calculamos tiempo de vida inactivo.
     $vida_session = time() - $_SESSION['tiempo'];
 
-        //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
-        if($vida_session > $inactivo) {
-            //Removemos sesión.
-            session_unset();
-            //Destruimos sesión.
-            session_destroy();              
-            //Redirigimos pagina.
-            header("Location: ../login.php");
+    //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
+    if ($vida_session > $inactivo) {
+        //Removemos sesión.
+        session_unset();
+        //Destruimos sesión.
+        session_destroy();
+        //Redirigimos pagina.
+        header("Location: ../login.php");
 
-            exit();
-        } else {  // si no ha caducado la sesion, actualizamos
-            $_SESSION['tiempo'] = time();
-        }
-
-
+        exit();
+    } else {  // si no ha caducado la sesion, actualizamos
+        $_SESSION['tiempo'] = time();
+    }
 } else {
     //Activamos sesion tiempo.
     $_SESSION['tiempo'] = time();
@@ -218,6 +216,56 @@ if(isset($_SESSION['tiempo']) ) {
                         </div>
                     </div>
                 </div>
+
+                <!-- VUE START -->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="jumbotron">VueJs</h1>
+                            <div id="app">
+                                <table class="table table-stripped">
+                                    <thead>
+                                        <tr>
+                                            <th class="mx-auto">ID Cita</th>
+                                            <th class="mx-auto">Dia</th>
+                                            <th class="mx-auto">Hora</th>
+                                            <th class="mx-auto">Fecha</th>
+                                            <th class="mx-auto">Servicio</th>
+                                            <th class="mx-auto">Barbero</th>
+                                            <th class="mx-auto">Cliente</th>
+                                            <th></th>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-if="items.length === 0">
+                                            <td colspan="4" class="text-center">
+                                                No hay registros por mostrar
+                                            </td>
+                                        </tr>
+                                        <tr v-for="item, index in items">
+                                            
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.dia }}</td>
+                                            <td>{{ item.hora }}</td>
+                                            <td>{{ item.fecha }}</td>
+                                            <td>{{ item.servicio }}</td>
+                                            <td>{{ item.barbero }}</td>
+                                            <td>{{ item.cliente }}</td>
+                                            <td>
+                                                <button @click="remove(index)" type="button" class="btn btn-danger btn-xs">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VUE ENDS -->
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
@@ -234,7 +282,7 @@ if(isset($_SESSION['tiempo']) ) {
         </div>
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
