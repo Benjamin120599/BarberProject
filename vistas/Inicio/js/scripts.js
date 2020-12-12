@@ -48,13 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
         events: 'http://localhost/PaginasWebs/ProyectoFinal/php/eventos.php',
 
         eventClick: function (info) {
-                      
+
         },
 
         dateClick: function (info) {
             $('#exampleModal').modal('show');
             console.log(info);
-            console.log("Version: "+jQuery().jquery);
+            console.log("Version: " + jQuery().jquery);
 
             var fecha = info.dateStr;
             var hora = info.dateStr.substring(11, 19);
@@ -102,20 +102,20 @@ document.addEventListener('DOMContentLoaded', function () {
             /*title: servicio + " - " + $('#txt_cliente').val(),
             date: $('#txt_fecha').val() + " " + $('#txt_hora').val(),
             barber: barber,*/
-            dia:$('#txt_dia').val(),
-            hora:$('#txt_hora').val(),
-            fecha:$('#txt_fecha').val(),
-            servicio:servicio,
+            dia: $('#txt_dia').val(),
+            hora: $('#txt_hora').val(),
+            fecha: $('#txt_fecha').val(),
+            servicio: servicio,
             barber: barber,
-            cliente:$('#txt_cliente').val()
+            cliente: $('#txt_cliente').val()
         }
 
-        console.log("Nuevo Evento recolectarRes: "+recolectarDatos());
-        console.log("Nuevo Evento btnAgendar: "+NuevoEvento);
+        console.log("Nuevo Evento recolectarRes: " + recolectarDatos());
+        console.log("Nuevo Evento btnAgendar: " + NuevoEvento);
         recolectarDatos();
         enviarInformacion('agregar', NuevoEvento);
 
-        
+
         //calendar.addEvent(NuevoEvento);
         //$('#exampleModal').modal('hide');
 
@@ -131,35 +131,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var NuevoEvento = {
 
-            dia:$('#txt_dia').val(),
-            hora:$('#txt_hora').val(),
-            fecha:$('#txt_fecha').val(),
-            servicio:servicio,
+            dia: $('#txt_dia').val(),
+            hora: $('#txt_hora').val(),
+            fecha: $('#txt_fecha').val(),
+            servicio: servicio,
             barber: barber,
-            cliente:$('#txt_cliente').val()
-            
+            cliente: $('#txt_cliente').val()
+
         }
         console.log(NuevoEvento);
-        
+
         return NuevoEvento;
     }
 
     function enviarInformacion(accion, objEvento) {
         $.ajax({
-            type:'POST',
-            url:'../../php/eventos.php?accion='+accion,
+            type: 'POST',
+            url: '../../php/eventos.php?accion=' + accion,
             //url: '../../../php/eventos.php?accion='+accion,
             data: objEvento,
-            success:function(msg){
-                if(msg) {
+            success: function (msg) {
+                if (msg) {
                     calendar.refetchEvents();
                     $('#exampleModal').modal('hide');
                 }
             },
-            error: function() {
+            error: function () {
                 alert("Error en el registro");
             }
         });
     }
 
 });
+
+//VUE
+/*var app = new Vue({
+    el: '#app', // Elemento
+    data: { // Parametros
+        //all_data:[]
+    },
+    created: function(){
+        console.log("Iniciando ...");
+        this.get_contacts();
+    },
+    methods:{
+        get_contacts: function(){
+            //fetch("../../../php/eventos.php").then(response=>response.json()).then(json=>{this.all_data=json.eventos})
+        },
+        remove: function (index) {
+            this.items.splice(index, 1);
+        }
+    }
+});*/
