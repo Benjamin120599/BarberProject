@@ -1,39 +1,80 @@
 <?php
+    header('Content-Type: application/json');
+
+    include('../conexionBD.php');
+
     session_start();
-    include_once '../abrir_conexion.php';
 
-    $sentencia = $conexion->prepare("SELECT * FROM Barberos WHERE Disponibilidad = ?;");
-
-    $sentencia->execute([1]);
-    $datos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($datos as $key) {
-        $datosImportantes['nombre'] = $key['Nombre_Barber'];
-        print_r($datosImportantes);
-        $_SESSION['nombres'] = $datosImportantes;
+    if (!isset($_SESSION['user'])) {
+        header('Location: ../login.php');
     }
 
-    
-    return $datosImportantes;
-    
-    /*if($datos) {
 
-        echo '<br>'.$datos['Id_Barber'];
-        echo '<br>'.$datos['Nombre_Barber'];
+    $pdo = new ConexionBD;
+
+    $accion = (isset($_GET['accion']))?$_GET['accion']:'leer';
+
+    switch($accion) {
+        case 'agregar':
+            $sql = "INSERT INTO Barberos(Id_Barber, Nombre_Barber, Primer_Ap_Barber, Segundo_Ap_Barber, Telefono_Barber, Calle_Barber, Numero_Barber, Colonia_Barber, Ciudad_Barber, Email_Barber, Disponibilidad) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            $sentencia = $pdo->prepare($sql);
+            
+            $stmt = $pdo->prepare("SELECT concat('BARBER00', COUNT(*)+1) AS Id FROM Barberos;");
+            $stmt->execute();
+            
+            while($r = $stmt->fetchAll(PDO::FETCH_ASSOC) ) {
+                $data = $r;
+            }
+            //echo json_encode(array("barberos"=>$data));
+            foreach ($data as $key => $value) {
+                //echo $key;
+                foreach ($value as $val) {
+                    $id = $val;
+                    //echo $val;
+                }
+                //$id = $key['Id'];
+            }
+            //echo $id;
+
+
+            $respuesta = $sentencia->execute([$id, $_POST['name'], $_POST['pap'], $_POST['sap'], $_POST['tel'], $_POST['calle'], $_POST['num'], $_POST['col'], $_POST['city'], $_POST['email'], 1]);
+            echo json_encode($respuesta);
+        break;
         
-        $_SESSION['id'] = $datos['Id_Barber'];
-        $_SESSION['nombre'] = $datos['Nombre_Barber'];
+        case 'eliminar':
+
+            $respuesta = false;
+
+            if(isset($_POST['id'])) {
+                $sql = "DELETE FROM Barberos WHERE Id_Barber = ?;";
+                $sentencia = $pdo->prepare($sql);
+                $respuesta = $sentencia->execute([$_POST['id']]);
+            }
+
+            echo json_encode($respuesta);
+
+        break;
+
+        case 'modificar':
+            
+            $sql = "UPDATE Barberos SET Nombre_Barber = ?, Primer_Ap_Barber = ?, Segundo_Ap_Barber = ?, Telefono_Barber = ?, Calle_Barber = ?, Numero_Barber = ?, Colonia_Barber = ?, Ciudad_Barber = ?, Email_Barber = ?, Disponibilidad = ? WHERE Id_Barber = ?";
+            $sentencia = $pdo->prepare($sql);
+            $respuesta = $sentencia->execute([$_POST['name'], $_POST['pap'], $_POST['sap'], $_POST['tel'], $_POST['calle'], $_POST['num'], $_POST['col'], $_POST['city'], $_POST['email'], 1, $_POST['id']]);
+
+            echo json_encode($respuesta);
+        break;
+
+        default:
+            $sql = "SELECT * FROM Barberos;";
         
-        $_SESSION['primerAp'] = $datos['Primer_Ap_Barber'];
-        $_SESSION['segundoAp'] = $datos['Segundo_Ap_Barber'];
-        $_SESSION['telefono'] = $datos['Telefono_Barber'];
-        $_SESSION['tipoUser'] = $datos['Tipo_Usuario'];
- 
-        return $datos;
-    } else {
-        //echo '<br>No existe el usuario';
-        header('location: ../vistas/login.php');
-    }*/
-    
+            $sentencia = $pdo->prepare($sql);
+            $sentencia->execute();
+
+            while($r = $sentencia->fetchAll(PDO::FETCH_ASSOC) ) {
+                $data = $r;
+            }
+            echo json_encode(array("barberos"=>$data));
+        break;
+    }
 
 ?>
