@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             abrirModal: function(id, name, pap, sap, tel, calle, num, col, city, email) {
                 $('#exampleModal2').modal('show');
+                $('#txt_idM').html(id);
                 $('#txt_nombreM').val(name);
                 $('#txt_papM').val(pap);
                 $('#txt_sapM').val(sap);
@@ -62,10 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#txt_cityM').val(city);
                 $('#txt_emailM').val(email);
             },
-            modificar: function (id) {
+            modificar: function () {
 
                 var newBarber = {
-                    id: id,
+                    id: $('#txt_idM').html(),
                     name: $('#txt_nombreM').val(),
                     pap: $('#txt_papM').val(),
                     sap: $('#txt_sapM').val(),
@@ -77,11 +78,31 @@ document.addEventListener('DOMContentLoaded', function () {
                     email: $('#txt_emailM').val()
                 }
 
+                $('#exampleModal2').modal('hide');
                 console.log(newBarber);
                 enviarInformacion('modificar', newBarber);
             }
         }
 
+    });
+
+    $('#btn_modificar').click(function () {
+        var newBarber = {
+            id: $('#txt_idM').html(),
+            name: $('#txt_nombreM').val(),
+            pap: $('#txt_papM').val(),
+            sap: $('#txt_sapM').val(),
+            tel: $('#txt_telM').val(),
+            calle: $('#txt_calleM').val(),
+            num: $('#txt_numM').val(),
+            col: $('#txt_colM').val(),
+            city: $('#txt_cityM').val(),
+            email: $('#txt_emailM').val()
+        }
+
+        $('#exampleModal2').modal('hide');
+        console.log(newBarber);
+        enviarInformacion('modificar', newBarber);
     });
 
     $('#btn_agregar').click(function () {
@@ -112,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
             success: function (msg) {
                 if (msg) {
                     //app.refetchItems();
-                    //window.location.href = 'agregar_personal.php';
+                    window.location.href = 'agregar_personal.php';
                     $('#exampleModal').modal('hide');
                 }
             },

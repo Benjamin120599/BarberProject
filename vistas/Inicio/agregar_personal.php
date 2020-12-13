@@ -155,9 +155,9 @@ if (isset($_SESSION['tiempo'])) {
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                             <span>Agregar <i class="fas fa-plus"></i> </span>
                         </button>
-                        
+
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal"  data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
 
@@ -166,7 +166,7 @@ if (isset($_SESSION['tiempo'])) {
                                     </div>
 
                                     <div class="modal-body">
-                                        
+
                                         <div class="col-lg-12">
                                             <label>Nombre: </label>
                                             <input id="txt_nombre" class="form-control mb-3" type="text" placeholder="Nombre" required>
@@ -225,23 +225,28 @@ if (isset($_SESSION['tiempo'])) {
                             </div>
                         </div>
 
+                    </div>
+
+
+                    <div class="row" style="font-size: small;">
+
                         <!-- OTRO MODAL -->
 
                         <button hidden type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                             <span>Agregar <i class="fas fa-plus"></i> </span>
                         </button>
-                        
+
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal2"  data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal2" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modificar Barbero</h5>
+                                        <h5 class="modal-title" id="txt_idM">Modificar Barbero</h5>
                                     </div>
 
                                     <div class="modal-body">
-                                        
+
                                         <div class="col-lg-12">
                                             <label>Nombre: </label>
                                             <input id="txt_nombreM" class="form-control mb-3" type="text" placeholder="Nombre" required>
@@ -293,16 +298,13 @@ if (isset($_SESSION['tiempo'])) {
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                        <button @click="modificar(item.Id_Barber)" type="button" class="btn btn-warning">Modificar</button>
+                                        <button id="btn_modificar" @click="modificar()" type="button" class="btn btn-warning">Modificar</button>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="row" style="font-size: small;">
                         <div class="col-lg-12">
                             <div id="app">
                                 <table class="table table-stripped">
