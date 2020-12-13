@@ -119,7 +119,7 @@ if(isset($_SESSION['tiempo']) ) {
                         <?php if ($_SESSION['tipoUser'] == 1) { ?>
                             <div class="sb-sidenav-menu-heading">Administración</div>
 
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <!--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Gestionar Clientes
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -130,7 +130,7 @@ if(isset($_SESSION['tiempo']) ) {
                                     <a class="nav-link" href="lista_clientes.php">Clientes</a>
                                     <a class="nav-link" href="agregar_cliente.php">Agregar Cliente</a>
                                 </nav>
-                            </div>
+                            </div>-->
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
