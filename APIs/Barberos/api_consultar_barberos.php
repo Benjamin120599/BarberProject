@@ -3,7 +3,6 @@
     include('../../php/conexionBD.php');
 
     $pdo = new ConexionBD();
-    //$data = $_REQUEST;
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cadena_JSON = file_get_contents('php://input'); //Recibe información a través de HTTP
@@ -13,11 +12,9 @@
         } else {
             $datos = json_decode($cadena_JSON, true);
 
-            $user = $datos['user'];
-
-            $sql = "SELECT * FROM Citas WHERE Cliente = ?;";
+            $sql = "SELECT Id_Barber FROM Barberos;";
             $sentencia = $pdo->prepare($sql);
-            $sentencia->execute([$user]);
+            $sentencia->execute();
 
             //echo json_encode($respuesta);
 
@@ -27,7 +24,7 @@
             }
 
             if($data) {
-                echo json_encode(array("citas"=>$data));
+                echo json_encode(array("barbers"=>$data));
             } else {
                 echo json_encode($data);
             }

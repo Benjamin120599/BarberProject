@@ -13,11 +13,12 @@
         } else {
             $datos = json_decode($cadena_JSON, true);
 
-            $user = $datos['user'];
+            $fecha = $datos['fecha'];
+            $campo = $datos['campo'];
 
-            $sql = "SELECT * FROM Citas WHERE Cliente = ?;";
+            $sql = "SELECT $campo FROM Citas WHERE Fecha = ?;";
             $sentencia = $pdo->prepare($sql);
-            $sentencia->execute([$user]);
+            $sentencia->execute([$fecha]);
 
             //echo json_encode($respuesta);
 

@@ -24,7 +24,7 @@
             }
 
             if($data) {
-                echo json_encode(array("usuarios"=>$data));
+                echo json_encode(array("citas"=>$data));
             } else {
                 echo json_encode($data);
             }

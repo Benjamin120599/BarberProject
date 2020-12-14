@@ -1,6 +1,7 @@
 <?php
 
     include('../../php/conexionBD.php');
+    header('Content-Type: application/json');
 
     $pdo = new ConexionBD();
 
@@ -12,6 +13,8 @@
         } else {
             $datos = json_decode($cadena_JSON, true);
 
+            //echo $datos['dia']."-".$datos['hora']."-".$datos['fecha']."-".$datos['servicio']."-".$datos['barber']."-".$datos['cliente']."-";
+
             $dia = $datos['dia'];
             $hora = $datos['hora'];
             $fecha = $datos['fecha'];
@@ -22,7 +25,21 @@
             $sql = "INSERT INTO Citas(Dia, Hora_Inicio, Fecha, Servicio, Barber, Cliente) VALUES(?, ?, ?, ?, ?, ?);";
             $sentencia = $pdo->prepare($sql);
             $respuesta = $sentencia->execute([$dia, $hora, $fecha, $servicio, $barber, $cliente]);
-            echo json_encode($respuesta);
+            
+            
+            $data = 'false';
+            if($respuesta) {
+                $data = 'true';
+            }
+
+            if($data) {
+                echo json_encode(array("insert"=>$data));
+            } else {
+                echo json_encode($data);
+            }
+            
+            
+            //echo json_encode($respuesta);
 
         }        
 
