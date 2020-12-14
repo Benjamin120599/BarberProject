@@ -54,6 +54,7 @@
     <main>
         <section>
             <div class="row g-0">
+
                 <div class="col-lg-7">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -63,13 +64,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item img-1 min-vh-100 active">
-                                
+
                             </div>
                             <div class="carousel-item img-2 min-vh-100">
-                                
+
                             </div>
                             <div class="carousel-item img-3 min-vh-100">
-                                
+
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

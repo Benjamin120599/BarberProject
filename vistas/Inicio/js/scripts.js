@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
 //VUE
 /*var app = new Vue({
     el: '#app', // Elemento

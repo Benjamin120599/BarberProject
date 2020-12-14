@@ -186,85 +186,16 @@ if (isset($_SESSION['tiempo'])) {
                     </div>
 
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Citas Semanales</li>
+                        <li class="breadcrumb-item active">Galeria</li>
                     </ol>
 
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
-                            DataTable Example
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Hora</th>
-                                            <th>Lunes</th>
-                                            <th>Martes</th>
-                                            <th>Miercoles</th>
-                                            <th>Jueves</th>
-                                            <th>Viernes</th>
-                                            <th>Sábado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                    <!-- =========================  INICIO GALERIA ==========================-->
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- VUE START -->
+                    <!-- =========================  TERMINO GALERIA ==========================-->
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="jumbotron">VueJs</h1>
-                            <div id="app">
-                                <table class="table table-stripped">
-                                    <thead>
-                                        <tr>
-                                            <th class="mx-auto">ID Cita</th>
-                                            <th class="mx-auto">Dia</th>
-                                            <th class="mx-auto">Hora</th>
-                                            <th class="mx-auto">Fecha</th>
-                                            <th class="mx-auto">Servicio</th>
-                                            <th class="mx-auto">Barbero</th>
-                                            <th class="mx-auto">Cliente</th>
-                                            <th></th>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-if="items.length === 0">
-                                            <td colspan="4" class="text-center">
-                                                No hay registros por mostrar
-                                            </td>
-                                        </tr>
-                                        <tr v-for="item, index in items">
-                                            
-                                            <td>{{ item.id }}</td>
-                                            <td>{{ item.dia }}</td>
-                                            <td>{{ item.hora }}</td>
-                                            <td>{{ item.fecha }}</td>
-                                            <td>{{ item.servicio }}</td>
-                                            <td>{{ item.barbero }}</td>
-                                            <td>{{ item.cliente }}</td>
-                                            <td>
-                                                <button @click="remove(index)" type="button" class="btn btn-danger btn-xs">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- VUE ENDS -->
+
 
             </main>
             <footer class="py-4 bg-light mt-auto">
