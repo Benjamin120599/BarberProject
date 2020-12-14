@@ -18,23 +18,15 @@ if (isset($_SESSION['nombre'])) {
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/login.css" />
-
-    <!--Recaptcha-->
-    <script src='https://www.google.com/recaptcha/api.js?render=6LdJSwIaAAAAALcvkqTgO8gTlNg20Ixw3rrwwBCX'>
-    </script>
-    <script>
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6LdJSwIaAAAAALcvkqTgO8gTlNg20Ixw3rrwwBCX', {
-                    action: 'formulario'
-                })
-                .then(function(token) {
-                    var recaptchaResponse = document.getElementById('recaptchaResponse');
-                    recaptchaResponse.value = token;
-                });
-        });
-    </script>
-
     <title>Registrarse</title>
+
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
 </head>
 
 <body class="bg-dark">
@@ -142,7 +134,9 @@ if (isset($_SESSION['nombre'])) {
                                 <input type="tel" class="form-control inp" name="telefono" placeholder="Telefono" required value="<?php echo isset($_SESSION['datoTel']) ? $_SESSION['datoTel'] : ""; ?>">
                             </div>
 
-                            <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                            <!--<input type="hidden" name="recaptcha_response" id="recaptchaResponse">-->
+
+                            <div class="g-recaptcha" data-sitekey="6LeLKgYaAAAAAOOG-VjdmWB-vRUBBgllFrjibQrx" req style="padding-left: 22%; padding-bottom: 5%;"></div>
 
                             <div class="col-md-12 mb-3">
                                 <button type="submit" class="btn btn-primary" style="width: 100%;">Registrar Cuenta</button>
