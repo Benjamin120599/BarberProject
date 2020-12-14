@@ -17,7 +17,19 @@
             $sql = "DELETE FROM Citas WHERE Id_Cita=?;";
             $sentencia = $pdo->prepare($sql);
             $respuesta = $sentencia->execute([$id]);
-            echo json_encode($respuesta);
+            //echo json_encode($respuesta);
+
+            $data = 'false';
+            if($respuesta) {
+                $data = 'true';
+            }
+
+            if($data) {
+                echo json_encode(array("delete"=>$data));
+            } else {
+                echo json_encode($data);
+            }
+
 
         }        
 

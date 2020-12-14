@@ -23,7 +23,17 @@
             $sql = "UPDATE Citas SET Dia=?, Hora_Inicio=?, Fecha=?, Servicio=?, Barber=?, Cliente=? WHERE Id_Cita=?;";
             $sentencia = $pdo->prepare($sql);
             $respuesta = $sentencia->execute([$dia, $hora, $fecha, $servicio, $barber, $cliente, $id]);
-            echo json_encode($respuesta);
+            
+            $data = 'false';
+            if($respuesta) {
+                $data = 'true';
+            }
+
+            if($data) {
+                echo json_encode(array("delete"=>$data));
+            } else {
+                echo json_encode($data);
+            }
 
         }        
 
