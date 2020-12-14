@@ -30,7 +30,7 @@
             }
 
             if($data) {
-                echo json_encode(array("delete"=>$data));
+                echo json_encode(array("update"=>$data));
             } else {
                 echo json_encode($data);
             }

@@ -22,9 +22,21 @@
 
             $sql = "INSERT INTO Usuarios VALUES(?, ?, ?, ?, ?, ?, ?);";
             $sentencia = $pdo->prepare($sql);
-            $respuesta = $sentencia->execute([$user, $pass, $name, $pap, $sap, $tel, $tipo]);
+            $respuesta = $sentencia->execute([$user, sha1($pass), $name, $pap, $sap, $tel, $tipo]);
 
-           echo json_encode($respuesta);
+            //echo json_encode($respuesta);
+
+            $data = 'false';
+            if($respuesta) {
+                $data = 'true';
+            }
+
+            if($data) {
+                echo json_encode(array("insert"=>$data));
+            } else {
+                echo json_encode($data);
+            }
+
         }        
 
     } else {
