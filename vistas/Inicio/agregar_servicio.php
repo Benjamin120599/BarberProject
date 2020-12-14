@@ -43,7 +43,7 @@ if (isset($_SESSION['tiempo'])) {
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Gestionar Personal</title>
+    <title>Gestionar Servicios</title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -146,7 +146,7 @@ if (isset($_SESSION['tiempo'])) {
                     <h1 class="mt-4">Barbería Kingdom Wolf</h1>
 
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Barberos</li>
+                        <li class="breadcrumb-item active">Servicios</li>
                     </ol>
 
                     <!-- VUE START -->
@@ -162,56 +162,19 @@ if (isset($_SESSION['tiempo'])) {
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Añadir Barbero</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Añadir Servicio</h5>
                                     </div>
 
                                     <div class="modal-body">
 
                                         <div class="col-lg-12">
-                                            <label>Nombre: </label>
-                                            <input id="txt_nombre" class="form-control mb-3" type="text" placeholder="Nombre" required>
+                                            <label>Nombre Servicio: </label>
+                                            <input id="txt_nombre" class="form-control mb-3" type="text" placeholder="Servicio" required>
                                         </div>
 
                                         <div class="col-lg-12">
-                                            <label>Primer Apellido: </label>
-                                            <input id="txt_pap" class="form-control mb-3" type="text" placeholder="Primer Apellido" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Segundo Apellido: </label>
-                                            <input id="txt_sap" class="form-control mb-3" type="text" placeholder="Segundo Apellido" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Telefono </label>
-                                            <input id="txt_tel" class="form-control mb-3" type="number" placeholder="Telefono" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Calle: </label>
-                                            <input id="txt_calle" class="form-control mb-3" type="text" placeholder="Calle" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Colonia: </label>
-                                            <input id="txt_col" class="form-control mb-3" type="text" placeholder="Colonia" required>
-                                        </div>
-
-                                        <div class="row mr-1 ml-1">
-                                            <div class="col-lg-6">
-                                                <label>Número: </label>
-                                                <input id="txt_num" class="form-control mb-3" type="number" placeholder="Número" required>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <label>Ciudad: </label>
-                                                <input id="txt_city" class="form-control mb-3" type="text" placeholder="Ciudad" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Correo Electrónico: </label>
-                                            <input id="txt_email" class="form-control mb-3" type="email" placeholder="Email" required>
+                                            <label>Precio: </label>
+                                            <input id="txt_precio" class="form-control mb-3" type="text" placeholder="Precio" required>
                                         </div>
 
                                     </div>
@@ -242,56 +205,19 @@ if (isset($_SESSION['tiempo'])) {
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="txt_idM">Modificar Barbero</h5>
+                                        <h5 class="modal-title" id="txt_idM">Modificar Servicio</h5>
                                     </div>
 
                                     <div class="modal-body">
 
                                         <div class="col-lg-12">
-                                            <label>Nombre: </label>
-                                            <input id="txt_nombreM" class="form-control mb-3" type="text" placeholder="Nombre" required>
+                                            <label>Nombre Servicio: </label>
+                                            <input id="txt_nombreM" class="form-control mb-3" type="text" placeholder="Servicio" required>
                                         </div>
 
                                         <div class="col-lg-12">
-                                            <label>Primer Apellido: </label>
-                                            <input id="txt_papM" class="form-control mb-3" type="text" placeholder="Primer Apellido" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Segundo Apellido: </label>
-                                            <input id="txt_sapM" class="form-control mb-3" type="text" placeholder="Segundo Apellido" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Telefono </label>
-                                            <input id="txt_telM" class="form-control mb-3" type="number" placeholder="Telefono" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Calle: </label>
-                                            <input id="txt_calleM" class="form-control mb-3" type="text" placeholder="Calle" required>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Colonia: </label>
-                                            <input id="txt_colM" class="form-control mb-3" type="text" placeholder="Colonia" required>
-                                        </div>
-
-                                        <div class="row mr-1 ml-1">
-                                            <div class="col-lg-6">
-                                                <label>Número: </label>
-                                                <input id="txt_numM" class="form-control mb-3" type="number" placeholder="Número" required>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <label>Ciudad: </label>
-                                                <input id="txt_cityM" class="form-control mb-3" type="text" placeholder="Ciudad" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>Correo Electrónico: </label>
-                                            <input id="txt_emailM" class="form-control mb-3" type="email" placeholder="Email" required>
+                                            <label>Precio: </label>
+                                            <input id="txt_precioM" class="form-control mb-3" type="text" placeholder="Precio" required>
                                         </div>
 
                                     </div>
@@ -310,17 +236,9 @@ if (isset($_SESSION['tiempo'])) {
                                 <table class="table table-stripped">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Primer Ap.</th>
-                                            <th>Segundo Ap.</th>
-                                            <th>Telefono</th>
-                                            <th>Calle</th>
-                                            <th>Número</th>
-                                            <th>Colonia</th>
-                                            <th>Ciudad</th>
-                                            <th>Email</th>
-                                            <th>Disp.</th>
+                                            <th>ID Servicio</th>
+                                            <th>Servicio</th>
+                                            <th>Precio</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -332,22 +250,14 @@ if (isset($_SESSION['tiempo'])) {
                                         </tr>
                                         <tr v-for="(item, index) in items">
 
-                                            <td id="tbl_id">{{ item.Id_Barber }}</td>
-                                            <td id="tbl_id">{{ item.Nombre_Barber }}</td>
-                                            <td id="tbl_pap">{{ item.Primer_Ap_Barber }}</td>
-                                            <td id="tbl_sap">{{ item.Segundo_Ap_Barber }}</td>
-                                            <td id="tbl_tel">{{ item.Telefono_Barber }}</td>
-                                            <td id="tbl_calle">{{ item.Calle_Barber }}</td>
-                                            <td id="tbl_num">{{ item.Numero_Barber }}</td>
-                                            <td id="tbl_col">{{ item.Colonia_Barber }}</td>
-                                            <td id="tbl_city">{{ item.Ciudad_Barber }}</td>
-                                            <td id="tbl_email">{{ item.Email_Barber }}</td>
-                                            <td id="tbl_disp">{{ item.Disponibilidad }}</td>
+                                            <td id="tbl_id">{{ item.Id_Servicio }}</td>
+                                            <td id="tbl_id">{{ item.Tipo_Corte }}</td>
+                                            <td id="tbl_pap">{{ item.Precio }}</td>
                                             <td>
-                                                <button @click="abrirModal(item.Id_Barber, item.Nombre_Barber, item.Primer_Ap_Barber, item.Segundo_Ap_Barber, item.Telefono_Barber, item.Calle_Barber, item.Numero_Barber, item.Colonia_Barber, item.Ciudad_Barber, item.Email_Barber, item.Disponibilidad)" type="button" class="btn btn-warning btn-xs">
+                                                <button @click="abrirModal(item.Id_Servicio, item.Tipo_Corte, item.Precio)" type="button" class="btn btn-warning btn-xs">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
-                                                <button @click="eliminar(item.Id_Barber, index)" type="button" class="btn btn-danger btn-xs">
+                                                <button @click="eliminar(item.Id_Servicio, index)" type="button" class="btn btn-danger btn-xs">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </td>
@@ -383,7 +293,7 @@ if (isset($_SESSION['tiempo'])) {
 
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/barberos.js"></script>
+    <script src="js/servicios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script>
